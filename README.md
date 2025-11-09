@@ -1,84 +1,89 @@
 Hospital Overstay Risk Analytics
 
-Predicting hospital-level overstay risk using real-world inpatient data with dynamic insights and interactive dashboards.
+Predict hospital-level overstay risk using real-world inpatient data with dynamic insights and an interactive dashboard.
 
 Project Overview
 
-This project provides a full-stack, end-to-end pipeline for analyzing hospital-level inpatient data to predict overstay risk. It handles raw CSV datasets, performs cleaning, feature engineering, and runs live ML predictions using RandomForest/XGBoost with optional Neural Network. A professional Streamlit dashboard delivers dynamic, dataset-specific insights, interactive visualizations, and downloadable results.
+This project provides a full-stack pipeline for analyzing hospital-level inpatient data to predict overstay risk. It handles raw CSV datasets, performs cleaning, feature engineering, and runs live ML predictions using RandomForest/XGBoost (optional Neural Network). A professional Streamlit dashboard delivers dynamic insights, interactive visualizations, and downloadable results.
 
 Key Features
 
-Live ML Predictions: Upload any hospital-level CSV and get risk probabilities and labels (Low / Medium / High).
+Live ML Predictions: Upload any hospital-level CSV to get risk probabilities and labels (Low / Medium / High).
 
-Dynamic Insights: Textual and visual explanations update per uploaded dataset using SHAP plots.
+Dynamic Insights: Textual summaries and SHAP-based visual explanations update per dataset.
 
 Interactive Dashboard:
 
-Upload & preview CSV data
+Upload & preview CSV
 
-Risk prediction tables and probability distributions
+Risk prediction tables & histograms
 
 Feature contribution analysis
 
-Download results in CSV format
+Download predictions in CSV
 
-Professional Styling: Neutral color palette, minimalistic charts, clean fonts.
-
-Optional Enhancements: Hospital clustering (PCA/UMAP), ensemble modeling, Neural Network support.
+Optional Enhancements: Hospital clustering, ensemble models, Neural Network support.
 
 Dataset
 
 Source: Medicare Inpatient Hospitals – by Provider and Service (CSV)
 
-Type: Hospital-level aggregated data
+Type: Hospital-level aggregated data (>100,000 rows)
 
-Columns include: Hospital ID, total discharges, average LOS, payments/charges, hospital type/region, and more
-
-Size: >100,000 rows, real-world data, uncleaned
+Columns: Hospital ID, total discharges, average LOS, charges/payments, hospital type/region
 
 Installation
-# Clone the repo
 git clone <repo_url>
 cd hospital_overstay_mvp
-
-# Install dependencies
 pip install -r requirements.txt
-
-# Run the dashboard
 streamlit run frontend/dashboard.py
 
 Usage
 
 Upload a hospital-level CSV dataset.
 
-Preview data and check summary statistics.
+Preview data and summary statistics.
 
-View predicted overstay risk probabilities and risk labels.
+View predicted overstay risk and risk labels.
 
-Explore feature insights via SHAP plots and dynamic textual explanations.
+Explore feature insights via SHAP plots and textual summaries.
 
-Download CSV with predictions and optional cluster labels.
+Download CSV with predictions (and optional cluster labels).
 
+Project Structure
+hospital_overstay_mvp/
+├── data/                  # Raw and processed datasets
+├── backend/               # Data ingestion, cleaning, feature engineering, ML
+│   ├── ingestion.py
+│   ├── cleaning.py
+│   ├── features.py
+│   └── ml_model.py
+├── frontend/              # Streamlit dashboard
+│   └── dashboard.py
+├── models/                # Trained ML models
+├── reports/               # Model evaluation & SHAP analysis
+├── requirements.txt       # Python dependencies
+└── README.md
 
 Evaluation Metrics
 
 Supervised ML: ROC-AUC, Precision, Recall, F1-score
 
-Clustering (optional): silhouette score
+Clustering (optional): Silhouette score
 
 Deployment
 
 Platform: Streamlit Cloud / Hugging Face Spaces
 
-Features: Upload new CSV → live predictions → interactive dashboard → download results
+Live ML Predictions: Upload CSV → dashboard updates dynamically → download results
 
 Technologies Used
 
 Python 3.x
 
-Pandas, NumPy for data handling
+Pandas, NumPy
 
-Scikit-learn, XGBoost for ML
+Scikit-learn, XGBoost
 
 SHAP for explainability
 
@@ -86,8 +91,8 @@ Streamlit, Plotly/Altair for interactive dashboard
 
 Portfolio Value
 
-Demonstrates real-world data ingestion, cleaning, feature engineering
+Demonstrates real-world data handling, feature engineering, and ML modeling
 
-Shows dynamic, live ML predictions with professional visualization
+Provides dynamic, live ML insights with professional visualization
 
-Fully deployable full-stack project, recruiter-ready
+Fully deployable, recruiter-ready full-stack project
